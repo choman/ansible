@@ -1,0 +1,8 @@
+---
+
+- name: Installing snaps
+  command: snap install {{item}}
+  with_items:
+    - vscode
+    - vlc
+
