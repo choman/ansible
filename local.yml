@@ -3,7 +3,7 @@
   tasks:
   - name: Install PPAs
     apt_repository: 
-      repo: {{item}}
+      repo: "{{item}}"
       with_items:
         - ppa:git-core/ppa
         - ppa:libreoffice/ppa
