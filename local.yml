@@ -2,9 +2,8 @@
   become: true
   tasks:
   - name: Install PPAs
-    apt_repository: name={{item}}
-    with_items:
-      - ppa:git-core/ppa
+    - apt_repository: 
+      repo: ppa:git-core/ppa
 
   - name: Install Packages
     apt: name={{item}}
