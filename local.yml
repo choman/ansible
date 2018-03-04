@@ -19,3 +19,6 @@
       - mc
       - tmsu
       - tmux
+
+  - roles:
+    - snap
