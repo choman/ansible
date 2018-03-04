@@ -1,9 +1,16 @@
 - hosts: localhost
   become: true
   tasks:
+  - name: Install PPAs
+    apt_repository: name={{item}}
+    with_items:
+      - ppa:git-core/ppa
+
   - name: Install Packages
     apt: name={{item}}
     with_items:
+      - di
       - htop
       - mc
       - tmux
+      - git
