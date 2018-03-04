@@ -7,13 +7,15 @@
       - ppa:apt-fast/stable
       - ppa:git-core/ppa
       - ppa:libreoffice/ppa
+      - ppa:tmsu/ppa
 
   - name: Install Packages
     apt: name={{item}}
     with_items:
+      - apt-fast
       - di
       - git
       - htop
       - mc
+      - tmsu
       - tmux
-      - apt-fast
