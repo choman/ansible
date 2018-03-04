@@ -4,6 +4,7 @@
   - name: Install PPAs
     apt_repository: repo={{item}} update_cache=yes
     with_items:
+      - ppa:apt-fast/stable
       - ppa:git-core/ppa
       - ppa:libreoffice/ppa
 
@@ -11,7 +12,8 @@
     apt: name={{item}}
     with_items:
       - di
+      - git
       - htop
       - mc
       - tmux
-      - git
+      - apt-fast
