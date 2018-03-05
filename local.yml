@@ -22,5 +22,6 @@
 
   roles:
     - communication
+    - development
     - editors
     - snap
