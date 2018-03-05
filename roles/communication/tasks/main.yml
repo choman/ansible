@@ -3,6 +3,9 @@
 - stat: path=/usr/bin/Telegram
   register: telegram_stat
 
+  ####################
+  ## Install jitsi
+  ####################
 - stat: path=/usr/bin/jitsi
   register: jitsi_stat
 
@@ -21,6 +24,9 @@
     - /tmp/jitsi.deb
   when: not jitsi_stat.stat.exists
 
+  ####################
+  ## Install signal
+  ####################
 - name: Installing signal repo
   apt_repository:
      repo: "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main"
@@ -30,6 +36,9 @@
 - name: Installing signal
   apt: name=signal-desktop
 
+  ####################
+  ## Install keybase
+  ####################
 - stat: path=/usr/bin/run_keybase
   register: keybase_stat
 
