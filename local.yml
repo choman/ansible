@@ -5,7 +5,6 @@
     apt_repository: repo={{item}} update_cache=yes
     with_items:
       - ppa:apt-fast/stable
-      - ppa:git-core/ppa
       - ppa:libreoffice/ppa
         ##      - ppa:tmsu/ppa
       - ppa:webupd8team/terminix
@@ -15,7 +14,6 @@
     with_items:
       - apt-fast
       - di
-      - git
       - htop
       - mc
       - tilix
