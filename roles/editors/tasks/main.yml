@@ -2,13 +2,13 @@
 
 
 - stat: path=/usr/bin/atom
-    register: atom_stat
-      when: editors.atom
+  register: atom_stat
+  when: editors.atom
 
 - name: Downloading atom
-    get_url: url=https://atom.io/download/deb dest=/tmp/atom.deb
-      when: editors.atom and not atom_stat.stat.exists
+  get_url: url=https://atom.io/download/deb dest=/tmp/atom.deb
+  when: editors.atom and not atom_stat.stat.exists
 
 - name: Installing atom
-    apt: deb=/tmp/atom.deb
-    when: editors.atom and not atom_stat.stat.existsi
+  apt: deb=/tmp/atom.deb
+  when: editors.atom and not atom_stat.stat.existsi
