@@ -4,6 +4,7 @@
   command: snap install {{item}}
   with_items:
     - skype
+    - spotify
     - vlc
     - vscode --classic
 
