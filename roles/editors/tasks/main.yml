@@ -11,4 +11,4 @@
 
 - name: Installing atom
   apt: deb=/tmp/atom.deb
-  when: editors.atom and not atom_stat.stat.existsi
+  when: editors.atom and not atom_stat.stat.exists
