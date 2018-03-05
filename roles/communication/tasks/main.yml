@@ -54,8 +54,13 @@
   ####################
   ## Install raambox
   ####################
-  #- name: Downloading rambox
-  #  get_url: url=https://getrambox.herokuapp.com/download/linux_64\?filetype=deb dest=/tmp/rambox.tgz
+  ##  - name: Downloading rambox
+  ##  get_url: url=https://getrambox.herokuapp.com/download/linux_64\?filetype=deb dest=/tmp/rambox.tgz
 
   #- name: Installing rambox
   #  apt: deb=/tmp/rambox.deb
+
+  - name: Installing rambox
+    src: url=https://getrambox.herokuapp.com/download/linux_64\?filetype=deb
+    dest: /opt
+    remote_src: yes
