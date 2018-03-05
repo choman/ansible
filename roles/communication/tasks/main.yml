@@ -1,7 +1,17 @@
 ---
 
-- stat: path=/usr/bin/Telegram
+  ####################
+  ## Install raambox
+  ####################
+- stat: path=/opt/Telegram/Telegram
   register: telegram_stat
+
+- name: Installing Telegram
+  unarchive:
+     src: https://telegram.org/dl/desktop/linux
+     dest: /opt
+     remote_src: yes
+  when: not telegram_stat.stat.exists
 
   ####################
   ## Install jitsi
@@ -54,12 +64,6 @@
   ####################
   ## Install raambox
   ####################
-  ##  - name: Downloading rambox
-  ##  get_url: url=https://getrambox.herokuapp.com/download/linux_64\?filetype=deb dest=/tmp/rambox.tgz
-
-  #- name: Installing rambox
-  #  apt: deb=/tmp/rambox.deb
-
 - name: Installing rambox
   unarchive:
      src: https://getrambox.herokuapp.com/download/linux_64?filetype=deb
