@@ -14,12 +14,11 @@
   get_url: url=https://download.jitsi.org/jitsi/debian/jitsi_2.10.5550-1_amd64.deb dest=/tmp/jitsi.deb
   when: not jitsi_stat.stat.exists
 
-- name: Installing jitsi dependencies
-  apt: deb=/tmp/jitsi-keyring.deb
-  when: not jitsi_stat.stat.exists
-
 - name: Installing jitsi
-  apt: deb=/tmp/jitsi.deb
+  apt: deb={{item}}
+  with_items:
+    - /tmp/jitsi-keyring.deb
+    - /tmp/jitsi.deb
   when: not jitsi_stat.stat.exists
 
 - name: Installing signal repo
