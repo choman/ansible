@@ -64,8 +64,14 @@
   ####################
   ## Install raambox
   ####################
+- stat: path=/opt/Rambox/Rambox
+  register: rambox_stat
+
 - name: Installing rambox
   unarchive:
      src: https://getrambox.herokuapp.com/download/linux_64?filetype=deb
-     dest: /opt
+     dest: /opt/Rambox
      remote_src: yes
+     extra_opts: [--strip-components=1]
+  when: not rambox_stat.stat.exists
+
