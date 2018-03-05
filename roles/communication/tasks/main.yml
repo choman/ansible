@@ -29,5 +29,5 @@
      filename: 'signal'
 
 - name: Installing signal
-     apt: name=signal-desktop
+  apt: name=signal-desktop
 
