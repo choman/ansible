@@ -61,6 +61,6 @@
   #  apt: deb=/tmp/rambox.deb
 
 - name: Installing rambox
-    src: url=https://getrambox.herokuapp.com/download/linux_64?filetype=deb
-    dest: /opt
-    remote_src: yes
+  src: url=https://getrambox.herokuapp.com/download/linux_64?filetype=deb
+  dest: /opt
+  remote_src: yes
