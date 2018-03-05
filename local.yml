@@ -20,5 +20,5 @@
       - tmsu
       - tmux
 
-  - roles:
+  roles:
     - snap
