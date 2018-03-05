@@ -3,7 +3,7 @@
 - name: Installing snaps
   command: snap install {{item}}
   with_items:
-    - skype
+    - skype --classic
     - spotify
     - vlc
     - vscode --classic
