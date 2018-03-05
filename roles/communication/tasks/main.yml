@@ -62,6 +62,6 @@
 
 - name: Installing rambox
   unarchive:
-     src: url=https://getrambox.herokuapp.com/download/linux_64?filetype=deb
+     src: https://getrambox.herokuapp.com/download/linux_64?filetype=deb
      dest: /opt
      remote_src: yes
