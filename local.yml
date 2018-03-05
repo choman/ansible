@@ -23,6 +23,6 @@
       - tmux
 
   roles:
-    - communication
+    ##    - communication
     - editors
     - snap
