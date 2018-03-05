@@ -32,5 +32,5 @@
   apt: name=signal-desktop
 
 - name: Downloading keybase
-  get_url: url=https://prerelease.keybase.io/keybase_amd64.deb debest=/tmp/keybase_amd64.deb
+  get_url: url=https://prerelease.keybase.io/keybase_amd64.deb dest=/tmp/keybase_amd64.deb
   apt: deb=/tmp/keybase_amd64.deb
