@@ -1,14 +1,22 @@
 ---
 
+- stat: path=/usr/bin/Telegram
+  register: telegram_stat
 
 - stat: path=/usr/bin/jitsi
   register: jitsi_stat
 
 - name: Downloading jitsi
+  get_url: url=https://download.jitsi.org/jitsi/debian/jitsi-archive-keyring_1.0.1_all.deb dest=/tmp/jitsi-keyring.deb
+  when: not jitsi_stat.stat.exists
+
   get_url: url=https://download.jitsi.org/jitsi/debian/jitsi_2.10.5550-1_amd64.deb dest=/tmp/jitsi.deb
   when: not jitsi_stat.stat.exists
 
 - name: Installing jitsi
+  apt: deb=/tmp/jitsi-keyring.deb
+  when: not jitsi_stat.stat.exists
+
   apt: deb=/tmp/jitsi.deb
   when: not jitsi_stat.stat.exists
 
