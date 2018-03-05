@@ -6,17 +6,28 @@
 - stat: path=/usr/bin/jitsi
   register: jitsi_stat
 
-- name: Downloading jitsi
+- name: Downloading jitsi dependencies
   get_url: url=https://download.jitsi.org/jitsi/debian/jitsi-archive-keyring_1.0.1_all.deb dest=/tmp/jitsi-keyring.deb
   when: not jitsi_stat.stat.exists
 
+- name: Downloading jitsi
   get_url: url=https://download.jitsi.org/jitsi/debian/jitsi_2.10.5550-1_amd64.deb dest=/tmp/jitsi.deb
   when: not jitsi_stat.stat.exists
 
-- name: Installing jitsi
+- name: Installing jitsi dependencies
   apt: deb=/tmp/jitsi-keyring.deb
   when: not jitsi_stat.stat.exists
 
+- name: Installing jitsi
   apt: deb=/tmp/jitsi.deb
   when: not jitsi_stat.stat.exists
+
+- name: Installing signal repo
+     apt_repository:
+     repo: echo "deb [arch=amd64] https://updates.signal.org/desktop/apt artful main"
+     state: present
+     filename: 'signal'
+
+- name: Installing signal
+     apt: name=signal-desktop
 
