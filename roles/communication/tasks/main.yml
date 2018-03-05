@@ -24,7 +24,7 @@
 
 - name: Installing signal repo
   apt_repository:
-     repo: echo "deb [arch=amd64] https://updates.signal.org/desktop/apt artful main"
+     repo: echo "deb https://updates.signal.org/desktop/apt xenial main"
      state: present
      filename: 'signal'
 
