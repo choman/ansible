@@ -30,8 +30,13 @@
 - name: Installing signal
   apt: name=signal-desktop
 
+- stat: path=/usr/bin/run_keybase
+  register: keybase_stat
+
 - name: Downloading keybase
   get_url: url=https://prerelease.keybase.io/keybase_amd64.deb dest=/tmp/keybase_amd64.deb
+  when: not keybase_stat.stat.exists
 
 - name: Installing keybase
   apt: deb=/tmp/keybase_amd64.deb
+  when: not keybase_stat.stat.exists
