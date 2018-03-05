@@ -23,7 +23,7 @@
   when: not jitsi_stat.stat.exists
 
 - name: Installing signal repo
-     apt_repository:
+  apt_repository:
      repo: echo "deb [arch=amd64] https://updates.signal.org/desktop/apt artful main"
      state: present
      filename: 'signal'
