@@ -64,7 +64,7 @@
   ####################
   ## Install raambox
   ####################
-- stat: path=/opt/Rambox/Rambox
+- stat: path=/opt/Rambox/rambox
   register: rambox_stat
 
 - name: Creates rambox directory
