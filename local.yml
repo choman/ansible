@@ -15,6 +15,7 @@
     with_items:
       - apt-fast
       - di
+      - dtrx
       - hh
       - htop
       - mc
