@@ -6,14 +6,16 @@
     with_items:
       - ppa:apt-fast/stable
       - ppa:libreoffice/ppa
-        ##      - ppa:tmsu/ppa
       - ppa:webupd8team/terminix
+      - ppa:ultradvorka/ppa
+        ##      - ppa:tmsu/ppa
 
   - name: Install Packages
     apt: name={{item}}
     with_items:
       - apt-fast
       - di
+      - hh
       - htop
       - mc
       - tilix
@@ -24,5 +26,5 @@
     - communication
     - development
     - editors
-    - network-tools
+      #@    - network-tools
     - snap
