@@ -7,7 +7,7 @@
       - ppa:apt-fast/stable
       - ppa:libreoffice/ppa
       - ppa:webupd8team/terminix
-      - ppa:ultradvorka/ppa
+      - ppa:dvorka/ppa
         ##      - ppa:tmsu/ppa
 
   - name: Install Packages
