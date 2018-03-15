@@ -3,7 +3,8 @@
 
 
 - name: Setup progress bar for apt
-  lineinfile: dest: /etc/apt/apt.conf.d/99progressbar
-              state: present
-              #line: 'Dpkg::Progress-Fancy::Progress-Bg "%1b[40m"'
-              line: 'Dpkg::Progress-Fancy "1";'
+  lineinfile: 
+      path:  /etc/apt/apt.conf.d/99progressbar
+      state: present
+      line:  'Dpkg::Progress-Fancy "1";'
+      #line: 'Dpkg::Progress-Fancy::Progress-Bg "%1b[40m"'
