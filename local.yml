@@ -24,6 +24,7 @@
       - tmux
 
   roles:
+    - sysconfig
     - communication
     - development
     - editors
