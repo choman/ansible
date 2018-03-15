@@ -12,5 +12,5 @@ things seen may not be up to ansible standards.  Just FYI
 
 
 ```
-sudo ansible-pull -U https://github.com/<your_user_name>/ansible.git
+sudo ansible-pull -U https://github.com/choman/ansible.git
 ```
