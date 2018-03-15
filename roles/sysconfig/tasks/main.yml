@@ -7,5 +7,5 @@
       path:  /etc/apt/apt.conf.d/99progressbar
       state: present
       create: yes
-      #line:  'Dpkg::Progress-Fancy "1";'
-      line: 'Dpkg::Progress-Fancy::Progress-Bg "%1b[40m"'
+      line:  'Dpkg::Progress-Fancy "1";'
+      #line: 'Dpkg::Progress-Fancy::Progress-Bg "%1b[40m"'
