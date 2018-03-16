@@ -19,6 +19,7 @@
       - hh
       - htop
       - mc
+      - mosh
       - tilix
       - tmsu
       - tmux
