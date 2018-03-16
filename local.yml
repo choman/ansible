@@ -11,7 +11,7 @@
         ##      - ppa:tmsu/ppa
 
   - name: Install Packages
-    apt: name={{item}}
+    apt: name={{item}} state=present update_cache=yes
     with_items:
       - apt-fast
       - di
