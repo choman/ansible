@@ -5,6 +5,7 @@
     - sysconfig
     - communication
     - development
+    - remote-tools
     - editors
     - network-tools
     - snap
