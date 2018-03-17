@@ -4,7 +4,6 @@
   apt_repository: repo={{item}} update_cache=yes
   with_items:
   - ppa:apt-fast/stable
-  - ppa:libreoffice/ppa
   - ppa:webupd8team/terminix
   - ppa:ultradvorka/ppa
   ##      - ppa:tmsu/ppa
