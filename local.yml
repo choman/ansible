@@ -6,6 +6,7 @@
     - sysconfig
     - communication
     - development
+    - media
     - remote-tools
     - editors
     - network-tools
