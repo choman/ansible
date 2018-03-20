@@ -1,14 +1,14 @@
 ---
 
-- name: Install PPAs
-  apt_repository: repo={{item}} update_cache=yes
-  with_items:
-  - ppa:videolan/stable-daily
+# - name: Install PPAs
+#   apt_repository: repo={{item}} update_cache=yes
+#   with_items:
+#   - ppa:videolan/stable-daily
  
-- name: Install Packages
-  apt: name={{item}} state=present # update_cache=yes
-  with_items:
-  - vlc
+# - name: Install Packages
+#   apt: name={{item}} state=present # update_cache=yes
+#   with_items:
+#   - vlc
 
 - name: Installing snaps
   command: snap install {{item}}
