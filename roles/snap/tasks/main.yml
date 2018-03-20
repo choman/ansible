@@ -5,6 +5,5 @@
   with_items:
     - skype --classic
     - spotify
-    - vlc
     - vscode --classic
 
