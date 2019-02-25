@@ -1,0 +1,19 @@
+---
+
+##- name: Install PPAs
+##  apt_repository: repo={{item}} update_cache=yes
+##  with_items:
+##  - ppa:apt-fast/stable
+##  - ppa:webupd8team/terminix
+##  - ppa:ultradvorka/ppa
+
+##- name: Install PPAs (17.04 - zesty)
+##  apt_repository: repo={{item}} update_cache=yes codename=zesty
+##  with_items:
+##  - ppa:tmsu/ppa
+ 
+- name: Install Packages
+  apt: name={{item}} state=present # update_cache=yes
+  with_items:
+  - exfat-fuse 
+  - exfat-utils
