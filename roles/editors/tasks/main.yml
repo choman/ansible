@@ -1,14 +1,5 @@
 ---
 
+- include_tasks: atom.yaml
+  #- include_tasks: simplenote.yaml
 
-- stat: path=/usr/bin/atom
-  register: atom_stat
-  when: editors.atom
-
-- name: Downloading atom
-  get_url: url=https://atom.io/download/deb dest=/tmp/atom.deb
-  when: editors.atom and not atom_stat.stat.exists
-
-- name: Installing atom
-  apt: deb=/tmp/atom.deb
-  when: editors.atom and not atom_stat.stat.exists
