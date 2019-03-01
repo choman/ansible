@@ -1,0 +1,12 @@
+---
+
+- name: Download Rust installer
+  get_url: 
+     url: https://sh.rustup.rs
+     dest: /tmp/rust-installer.sh
+     mode: 0755
+
+- name: Execute the rust-installer.sh
+  shell: /tmp/rust-installer.sh -y
+
+                            
