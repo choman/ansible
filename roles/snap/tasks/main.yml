@@ -1,9 +1,22 @@
 ---
 
+##- name: Installing snaps
+##  command: snap install {{item}}
+##  with_items:
+##    - skype --classic
+##    - spotify
+##    - vscode --classic
+
 - name: Installing snaps
-  command: snap install {{item}}
-  with_items:
-    - skype --classic
-    - spotify
-    - vscode --classic
+  snap:
+    name:
+      - spotify
+
+- name: Installing snaps (with classic)
+  snap:
+    name:
+      - skype
+      - vscode
+    classic: yes
+
 
