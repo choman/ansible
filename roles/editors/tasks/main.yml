@@ -1,5 +1,6 @@
 ---
 
 - include_tasks: atom.yaml
+- include_tasks: qownnotes.yaml
   #- include_tasks: simplenote.yaml
 
