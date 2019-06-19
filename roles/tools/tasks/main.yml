@@ -1,5 +1,6 @@
 ---
 
+
 - name: Install PPAs
   apt_repository: repo={{item}} update_cache=yes
   with_items:
@@ -28,3 +29,7 @@
   - tmuxinator
   - tmuxp
   - f2fs-tools
+
+- include_tasks: cargo.yml
+#- include_tasks: topgrade.yml
+#- include_tasks: cheat.yml

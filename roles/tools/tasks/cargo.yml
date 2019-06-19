@@ -1,0 +1,6 @@
+---
+
+- name: Install Packages
+  apt: name={{item}} state=present # update_cache=yes
+  with_items:
+  - cargo
