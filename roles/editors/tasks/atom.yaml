@@ -1,13 +1,51 @@
 ---
 
-- stat: path=/usr/bin/atom
-  register: atom_stat
-  when: editors.atom
+- name: Install key - atom
+  apt_key:
+    url: https://packagecloud.io/AtomEditor/atom/gpgkey
+    state: present
 
-- name: Downloading atom
-  get_url: url=https://atom.io/download/deb dest=/tmp/atom.deb
-  when: editors.atom and not atom_stat.stat.exists
+- name: Install PPAs - atom
+  apt_repository: repo={{item}} update_cache=yes
+  with_items:
+  - deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main
+  state: present
+  filename: atom.list
 
-- name: Installing atom
-  apt: deb=/tmp/atom.deb
-  when: editors.atom and not atom_stat.stat.exists
+- name: Install Packages - atom
+  apt: name={{item}} state=present # update_cache=yes
+  with_items:
+  - atom
+
+
+##- name: does atom exist
+##  stat: path=/usr/bin/atom
+##  register: atom_stat
+##  when: editors.atom
+
+##- name: check local version - atom
+##  command: /usr/bin/atom --version
+##  register: current_version
+##  when: atom_stat.stat.exists
+##  changed_when: False
+##  failed_when: False
+
+####- name: check latest version - atom2 {{ current_version }}
+####  uri:
+####     url: https://api.github.com/repos/atom/atom/releases/latest
+####     return_content: true
+####  register: json_response.tag_name
+
+###- name: check latest version - atom
+###  shell: curl -s https://api.github.com/repos/atom/atom/releases/latest  | grep -oP '"tag_name": "\K(.*)(?=")'
+###  register: latest_version
+###
+
+##- name: Downloading atom (not exist) {{ current_version }} {{ json_response.tag_name }}
+##  get_url: url=https://atom.io/download/deb dest=/tmp/atom.deb
+##  when: editors.atom
+##  #when: editors.atom and not atom_stat.stat.exists
+
+##- name: Installing atom
+##  apt: deb=/tmp/atom.deb
+##  when: editors.atom and not atom_stat.stat.exists
