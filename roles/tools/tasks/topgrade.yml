@@ -1,0 +1,6 @@
+---
+
+- name: Install Packages
+  cargo: name={{item}} state=present # update_cache=yes
+  with_items:
+  - topgrade

@@ -1,0 +1,11 @@
+---
+
+- uri:
+   url: https://api.github.com/repos/BoostIO/boost-releases/releases/latest
+     return_content: true
+   register: json_reponse
+
+- get_url:
+   url: "{{ json_reponse.json.browser_download_url }}"
+   dest: /tmp/boostnote-latest.deb
+

@@ -1,0 +1,9 @@
+---
+
+- name: Install cheat (github)
+  git:
+     repo: "https://github.com/cheat/cheat.git"
+     dest: /opt/cheat
+     version: latest
+
+
