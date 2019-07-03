@@ -19,6 +19,7 @@
   - apt-fast
   - di
   - dtrx
+  - f2fs-tools
     ##  - hh
   - htop
   - mc
@@ -26,9 +27,9 @@
   - tilix
   - tmsu
   - tmux
+  - pass
   - tmuxinator
   - tmuxp
-  - f2fs-tools
 
 - include_tasks: cargo.yml
 #- include_tasks: topgrade.yml
