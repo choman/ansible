@@ -24,6 +24,7 @@
   - apt-fast
   - bd
   - di
+  - direnv
   - dtrx
   - f2fs-tools
     ###- hh
