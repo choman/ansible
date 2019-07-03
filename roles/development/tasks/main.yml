@@ -12,6 +12,7 @@
   with_items:
     - git
     - meld
+    - silversearcher-ag
 
       ##- name: Install Rust
       ##  apt_repository: repo={{item}} update_cache=yes

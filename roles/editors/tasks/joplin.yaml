@@ -1,0 +1,11 @@
+- name: Downloading simplenote
+  uri:
+    url: https://api.github.com/repos/laurent22/joplin/releases/latest
+    return_content: true
+  register: json_reponse
+
+  get_url:
+    url: "{{ json_reponse.json.amd64 }}"
+    dest: ./test-latest.tar.gz
+
+

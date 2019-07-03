@@ -1,0 +1,19 @@
+---
+
+- name: Get release info
+  github_release:
+     action: latest_release
+     repo:   BoostIO
+     user:   boost-releases
+     token:   03343fe9dad9493012d5f2828ca3d17176b6cd76
+
+- name: Downloading boostnote
+  uri:
+    url: https://github.com/BoostIO/boost-releases/releases/download/v{{ latest_release }}/boostnote_{{ latest_release  }}_amd64.deb
+    return_content: true
+
+    ##  get_url:
+    ##url: "{{ json_reponse.json.amd64 }}"
+    ##dest: ./test-latest.tar.gz
+
+

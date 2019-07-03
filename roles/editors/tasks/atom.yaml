@@ -6,11 +6,9 @@
     state: present
 
 - name: Install PPAs - atom
-  apt_repository: repo={{item}} update_cache=yes
+  apt_repository: repo={{item}} update_cache=yes state=present filename=atom.list
   with_items:
   - deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main
-  state: present
-  filename: atom.list
 
 - name: Install Packages - atom
   apt: name={{item}} state=present # update_cache=yes
