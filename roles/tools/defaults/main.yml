@@ -1,0 +1,5 @@
+PPAS:
+    - "ppa:apt-fast/stable": disco
+    - "ppa:webupd8team/terminix": disco
+    - "ppa:ultradvorka/ppa": cosmic
+    - "ppa:tmsu/ppa": zesty

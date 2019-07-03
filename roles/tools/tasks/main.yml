@@ -2,36 +2,38 @@
 
 
 - name: Install PPAs
-  apt_repository: repo={{ item }} update_cache=true state=present
-  with_items:
-  - ppa:apt-fast/stable
-  - ppa:webupd8team/terminix
+  apt_repository: repo={{item.key}} update_cache=true state=present codename={{ item.value }}
+  with_dict: "{{ PPAS }}"
 
-- name: Install PPAs (18.04 - cosmic)
-  apt_repository: repo={{item}} update_cache=yes codename=cosmic
-  with_items:
-  - ppa:ultradvorka/ppa
+  ##  - ppa:apt-fast/stable
+  ##  - ppa:webupd8team/terminix
 
-- name: Install PPAs (17.04 - zesty)
-  apt_repository: repo={{item}} update_cache=yes codename=zesty
-  with_items:
-  - ppa:tmsu/ppa
+  ##- name: Install PPAs (18.04 - cosmic)
+  ##  apt_repository: repo={{item}} update_cache=yes codename=cosmic
+  ##  with_items:
+  ##  - ppa:ultradvorka/ppa
+
+  ##- name: Install PPAs (17.04 - zesty)
+  ##  apt_repository: repo={{item}} update_cache=yes codename=zesty
+  ##  with_items:
+  ##  - ppa:tmsu/ppa
  
 - name: Install Packages
-  apt: name={{item}} state=present # update_cache=yes
+  apt: name={{ item }} state=present # update_cache=yes
   with_items:
   - apt-fast
+  - bd
   - di
   - dtrx
   - f2fs-tools
-    ##  - hh
+    ###- hh
+    ###- hstr
   - htop
   - mc
-  - bd
+  - pass
   - tilix
   - tmsu
   - tmux
-  - pass
   - tmuxinator
   - tmuxp
 
