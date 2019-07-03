@@ -17,26 +17,50 @@
   ##  apt_repository: repo={{item}} update_cache=yes codename=zesty
   ##  with_items:
   ##  - ppa:tmsu/ppa
- 
+
+- name: Create list
+  set_fact:
+     my_list:
+       - apt-fast
+       - bd
+       - di
+       - direnv
+       - dtrx
+       - f2fs-tools
+         ###- hh
+         ###- hstr
+       - htop
+       - mc
+       - pass
+       - tilix
+       - tmsu
+       - tmux
+       - tmuxinator
+       - tmuxp
+
 - name: Install Packages
-  apt: name={{ item }} state=present # update_cache=yes
-  with_items:
-  - apt-fast
-  - bd
-  - di
-  - direnv
-  - dtrx
-  - f2fs-tools
-    ###- hh
-    ###- hstr
-  - htop
-  - mc
-  - pass
-  - tilix
-  - tmsu
-  - tmux
-  - tmuxinator
-  - tmuxp
+  apt: name={{ my_list }} state=present # update_cache=yes
+ 
+  # old style
+  ##- name: Install Packages
+  ##  apt: name={{ item }} state=present # update_cache=yes
+  ##  with_items:
+  ##  - apt-fast
+  ##  - bd
+  ##  - di
+  ##  - direnv
+  ##  - dtrx
+  ##  - f2fs-tools
+  ##    ###- hh
+  ##    ###- hstr
+  ##  - htop
+  ##  - mc
+  ##  - pass
+  ##  - tilix
+  ##  - tmsu
+  ##  - tmux
+  ##  - tmuxinator
+  ##  - tmuxp
 
 - include_tasks: cargo.yml
 #- include_tasks: topgrade.yml
