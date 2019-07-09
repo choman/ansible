@@ -12,6 +12,8 @@
   with_items:
     - git
     - meld
+    - pylint
+    - shellcheck
     - silversearcher-ag
 
       ##- name: Install Rust
