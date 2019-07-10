@@ -5,19 +5,6 @@
   apt_repository: repo={{item.key}} update_cache=true state=present codename={{ item.value }}
   with_dict: "{{ PPAS }}"
 
-  ##  - ppa:apt-fast/stable
-  ##  - ppa:webupd8team/terminix
-
-  ##- name: Install PPAs (18.04 - cosmic)
-  ##  apt_repository: repo={{item}} update_cache=yes codename=cosmic
-  ##  with_items:
-  ##  - ppa:ultradvorka/ppa
-
-  ##- name: Install PPAs (17.04 - zesty)
-  ##  apt_repository: repo={{item}} update_cache=yes codename=zesty
-  ##  with_items:
-  ##  - ppa:tmsu/ppa
-
 - name: Create list
   set_fact:
      my_list:
@@ -26,8 +13,6 @@
        - di
        - direnv
        - dtrx
-       - f2fs-tools
-       - gparted
          ###- hh
          ###- hstr
        - htop
@@ -42,27 +27,8 @@
 - name: Install Packages
   apt: name={{ my_list }} state=present # update_cache=yes
  
-  # old style
-  ##- name: Install Packages
-  ##  apt: name={{ item }} state=present # update_cache=yes
-  ##  with_items:
-  ##  - apt-fast
-  ##  - bd
-  ##  - di
-  ##  - direnv
-  ##  - dtrx
-  ##  - f2fs-tools
-  ##    ###- hh
-  ##    ###- hstr
-  ##  - htop
-  ##  - mc
-  ##  - pass
-  ##  - tilix
-  ##  - tmsu
-  ##  - tmux
-  ##  - tmuxinator
-  ##  - tmuxp
 
 - include_tasks: cargo.yml
+- include_tasks: fsutils.yml
 #- include_tasks: topgrade.yml
 #- include_tasks: cheat.yml
