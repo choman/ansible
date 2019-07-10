@@ -27,6 +27,7 @@
        - direnv
        - dtrx
        - f2fs-tools
+       - gparted
          ###- hh
          ###- hstr
        - htop
