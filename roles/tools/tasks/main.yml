@@ -16,13 +16,16 @@
          ###- hh
          ###- hstr
        - htop
+       - jq
        - mc
+       - neovim
        - pass
        - tilix
        - tmsu
        - tmux
        - tmuxinator
        - tmuxp
+       - vim
 
 - name: Install Packages
   apt: name={{ my_list }} state=present # update_cache=yes
