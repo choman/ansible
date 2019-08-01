@@ -1,14 +1,11 @@
 ---
-#- name: Install PPAs
-#  apt_repository: repo={{item}} update_cache=yes
-#  with_items:
-          #- ppa:apt-fast/stable
-          #  - ppa:libreoffice/ppa
-          #  - ppa:webupd8team/terminix
-          #  - ppa:ultradvorka/ppa
-  ##      - ppa:tmsu/ppa
+
+- name: Create list
+  set_fact:
+     my_list:
+       - mosh
 
 - name: Install Packages
-  apt: name={{item}} state=present # update_cache=yes
-  with_items:
-  - mosh
+  apt: name={{ my_list }} state=present # update_cache=yes
+
+

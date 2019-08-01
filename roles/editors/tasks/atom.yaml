@@ -10,10 +10,15 @@
   with_items:
   - deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main
 
+- name: Create list
+  set_fact:
+     my_list:
+       - atom
+
 - name: Install Packages - atom
-  apt: name={{item}} state=present # update_cache=yes
-  with_items:
-  - atom
+  apt: name={{ my_list }} state=present # update_cache=yes
+
+
 
 
 ##- name: does atom exist
