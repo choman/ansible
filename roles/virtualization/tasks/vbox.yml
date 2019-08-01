@@ -1,0 +1,37 @@
+---
+
+- name: Installing virtualization support
+  package: name={{item}}
+  with_items:
+    - qemu-kvm
+    - qemu-efi
+    - qemu-utils
+    - libvirt-bin
+    - ovmf
+
+
+  - name: Installing virtualization support
+    package: name={{item}}
+    when: gui
+    with_items:
+      - virt-manager
+
+  - name: Adding VirtualBox repository key
+    apt_key: url=http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc state=present
+    when: gui
+
+  - name: Adding VirtualBox repository
+    apt_repository: repo="deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib" state=present
+    when: gui
+
+  - name: Installing VirtualBox
+    package: name={{item}}
+    when: gui
+    with_items:
+      - dkms
+      - virtualbox-5.2
+
+  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:virbr*' ]"
+  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:vboxnet*' ]"
+  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:vnet*' ]"
+  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:veth*' ]"
