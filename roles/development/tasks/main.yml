@@ -11,6 +11,7 @@
   set_fact:
      my_list:
        - git
+       - jq
        - meld
        - pylint
        - shellcheck
