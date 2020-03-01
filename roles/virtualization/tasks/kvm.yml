@@ -1,0 +1,11 @@
+---
+
+- name: Create list
+  set_fact:
+     kvm_pgks:
+       - virt-manager
+
+
+- name: Install Virtualization Packages (kvm-gui)
+  apt: name={{ kvm_pgks }} state=present # update_cache=yes
+

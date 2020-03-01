@@ -1,0 +1,33 @@
+---
+
+# prevent run if vboxmanage exists
+
+- name: Adding VirtualBox repository key
+  apt_key: url=http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc state=present
+  #  when: gui
+
+- name: Adding VirtualBox repository
+  apt_repository: repo="deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib" state=present filename=vbox
+      
+  #    when: gui
+
+- name: Create list
+  set_fact:
+     vbox_pgks:
+       - virtualbox-6.0
+
+- name: Install Virtualization Packages (kvm-gui)
+  apt: name={{ kvm_pgks }} state=present # update_cache=yes
+
+- name: Retreive vbox version 
+  command: /usr/bin/vboxmanage --version | cut -dr -f1
+  register: vbox_version
+
+- name: Retreive vbox extensions
+  #  https://download.virtualbox.org/virtualbox/{{vbox_version}}/Oracle_VM_VirtualBox_Extension_Pack-{{vbox_version}}.vbox-extpack
+
+
+  #  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:virbr*' ]"
+  #  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:vboxnet*' ]"
+  #  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:vnet*' ]"
+  #  - set_fact: network_manager_unmanaged_devices="{{network_manager_unmanaged_devices}} + [ 'interface-name:veth*' ]"

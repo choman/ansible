@@ -7,19 +7,16 @@
   with_items:
     - ppa:git-core/ppa
 
+- name: Create list
+  set_fact:
+     my_list:
+       - git
+       - jq
+       - meld
+       - pylint
+       - shellcheck
+       - silversearcher-ag
+
 - name: Install Packages
-  apt: name={{item}}
-  with_items:
-    - git
-    - meld
-    - pylint
-    - shellcheck
-    - silversearcher-ag
-
-      ##- name: Install Rust
-      ##  apt_repository: repo={{item}} update_cache=yes
-      ##  with_items:
-      ##    - ppa:git-core/ppa
-
-
+  apt: name={{ my_list }} state=present # update_cache=yes
 

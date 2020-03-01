@@ -1,5 +1,10 @@
 # To do
 
+  - test vbox install on fresh machine
+  - add user to vbox and libvirt groups
+  - install vbox extensions
+  - install docker
+
 # ansible pull
 
 to properly maintain git logs, learn how to test locally.. That way 

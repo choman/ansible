@@ -3,9 +3,11 @@
 - name: Create list
   set_fact:
      my_list:
-       - mosh
+       - di
+       - f2fs-tools
+       - btrfs-progs
+       - gparted
 
 - name: Install Packages
   apt: name={{ my_list }} state=present # update_cache=yes
-
-
+ 
